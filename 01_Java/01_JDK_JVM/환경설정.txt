@@ -1,0 +1,30 @@
+# JDK  
+
+#### 다운로드 : 
+	키워드 검색: openJDK 11 download
+	다운로드사이트: jdk.java.net
+	11.0.2 다운로드
+
+#### 설치위치 : (단순 압축 풀고 복사)
+	C:\java\jdk-11.0.2
+
+#### 환경설정 : (path잡기)
+	내PC -> 속성 -> 고급시스템설정 -> 환경변수 -> 시스템변수 -> 찾아보기 ->
+	C:\java\jdk-11.0.2\bin
+	
+#### 설정확인 : 
+	cmd -> javac (입력)
+		
+	cmd -> java –version (입력)
+
+
+
+# 이클립스
+#### 다운로드 : 
+	Eclipse IDE for Enterprise Java and Web Developers  (꼭 Enterprise 버젼을 받기)
+	
+#### 설치위치 : (단순 압축 풀고 복사)
+	C:\Users\swj\Documents\eclipse\eclipse-jee-2021-09-R-win32-x86_64\eclipse
+
+#### 워크스페이스위치:
+	C:\Users\swj\eclipse-workspace
