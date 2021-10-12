@@ -5,8 +5,8 @@ chapter02 변수와 자료형
 chapter03 상수와형변환
 chapter04 연산자
 chapter05 실행흐름의컨트롤
-chapter06 메소드와변수의 스코프
-chapter07 클래스와 인스턴스
+*chapter06 메소드와변수의 스코프	v
+chapter07 클래스와 인스턴스		v
 chapter08 패키지와 클래스 패스
 chapter09 정보은닉 그리고 캡슐화
 chapter10 클래스 변수와 클래스 메소드
@@ -17,7 +17,7 @@ chapter13 배열
 chapter14 클래스의상속 1: 상속의기본
 chapter15 클래스의상속 2:오버라이딩
 chapter16 클래스의상속 3:상속의 목적
-chapter17 인터페이스와 추상클래스
+chapter17 인터페이스와 추상클래스	v
 chapter18 예외처리
 chapter19 자바의 메모리 모델과 Oject클래스
 chapter20 자바의 기본 클래스
