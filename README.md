@@ -1,11 +1,11 @@
 #### 커리쿨럼
 
-	1.자바 (1달~)
+	1.자바 			(1달~)
 	
 	2.DB(오라클) + SQL (2주)				//커리를 연습하게됨, oracle11g
 	
 	3.웹프로그래밍 JSP				//자바 서버 페이지
-		- javascript + CSS + Html + Jquery  //(1달)
+		- javascript + CSS + Html + Jquery  		//(1달)
 		- react , vue, angular
 		
 	4.SPRING(자바기반 서버프로그램)			//실무에서 많이 씀, 이것을 보고 사람을 뽑음.
