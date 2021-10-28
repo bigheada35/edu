@@ -1,3 +1,4 @@
+### 문제
 /*
 아래의 인터페이스에 맞추어(상속하여) 
 아래를 프로그래밍 하시오.
@@ -5,6 +6,8 @@
 Circle, Rectangle , Triangle
 
 */
+
+```java
 
 interface AreaGetable{
     double getArea();
@@ -57,3 +60,4 @@ class CondOp {
        
     }
 }
+```
