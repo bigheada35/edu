@@ -57,28 +57,36 @@ public class FormEx extends HttpServlet {
 
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
-		//request.getParameter("");
+		
 		String pwd = request.getParameter("pw");
 		String[] hobbyArray = request.getParameterValues("hobby");
 		String major = request.getParameter("major");
 		String protocol = request.getParameter("protocol");
 		
-		//pw.println(  +"<br>");
 		pw.println("이름: " + name +"<br>");
 		pw.println( "아이디: " + id +"<br>");
 		pw.println( "비밀번호: " + pwd +"<br>");
-		pw.println("취미 : <br>");
-		for(int i=0; i<hobbyArray.length ; i++) {
-			pw.println(hobbyArray[i] + " ");
+		
+		try {			
+			pw.println("취미 : <br>");
+			for(int i=0; i<hobbyArray.length ; i++) {
+				pw.println(hobbyArray[i] + " ");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			pw.println( "취미에 체크를 안했습니다.<br>");
+		}finally {
+			pw.println("</body>");
+			pw.println("</html>");
 		}
+	
 		pw.println("<br>");
 		pw.println( "전공: " + major +"<br>");
 		pw.println( "프로토콜: " + protocol +"<br>");
-		
 	
 		pw.println("</body>");
 		pw.println("</html>");
-		
+			
 		System.out.println("--doPost");
 	}
 
