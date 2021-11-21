@@ -29,6 +29,7 @@ __08강 Servlet 본격적으로 살펴보기-IV__
 - 8-1. 서블릿 초기화 파라미터 : ServletConfig
 - 8-2. 데이터 공유 : ServletContext
 - 8-3. 웹어플리케이션 감시 : ServletContextListener
+
 __9강. JSP 본격적으로 살펴보기-I__
 - 9-1. JSP 태그의 개념 이해
 - 9-2. JSP 동작 원리
