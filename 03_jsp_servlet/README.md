@@ -5,8 +5,8 @@
 04강 Servlet 맛보기
 
 __05강 Servlet 본격적으로 살펴보기-I__
-+Servlet은 JAVA언어를 사용하여 웹프로그램을 제작 하는 것.
--Servlet클래스는 HttpServlet클래스를 상속 받음.
+- Servlet은 JAVA언어를 사용하여 웹프로그램을 제작 하는 것.
+- Servlet클래스는 HttpServlet클래스를 상속 받음.
 
 06강 Servlet 본격적으로 살펴보기-II
 
