@@ -1,23 +1,22 @@
 
-04. SQL*PLUS 명령어의 종류
+__04. SQL*PLUS 명령어의 종류
 	
 05. 특정 레코드 추출 및 SQL함수 정복하기
 
-	select/from/where 절
-	산술/비교/논리 연산자
-	between and 연산자
-	in
-	like 연산자 와 와일드 카드
-		%
-		_
-		ESCAPE 옵션				
-	null을 위한 연산자	
-	정렬을 위한 order by절
-	distinct/별칭/연결 연산자
-	연결 연산자
-		"||" 수직바
-		
-		
+- select/from/where 절
+- 산술/비교/논리 연산자
+- between and 연산자
+- in
+- like 연산자 와 와일드 카드
+	%
+	_
+	ESCAPE 옵션				
+- null을 위한 연산자	
+- 정렬을 위한 order by절
+- distinct/별칭/연결 연산자
+- 연결 연산자
+	"||" 수직바
+
 06. SQL 단일행 함수 - 숫자 함수 문자 함수
 
 07. SQL 단일행 함수 - 날짜함수/형 변환함수/일반함수
