@@ -53,9 +53,102 @@ __06. SQL 단일행 함수 - 숫자 함수 문자 함수__
 		select ename, 19||substr(hiredate, 1, 2)년도, substr(hiredate, 4, 2)달 from emp where substr(hiredate, 4, 2) = '09';
 ```
 __07. SQL 단일행 함수 - 날짜함수/형 변환함수/일반함수__
+```sql
+1) 날짜 함수
+sysdate
+	시스템에서 현재 날짜를 읽어 와서 출력
+	select sysdate from dual;
+	
+months_between	
+	각 직원들이 근무한 개월 수
+	select ename, sysdate, hiredate, months_between(sysdate, hiredate) 근무개월수 from emp;
+	
+add_months
+	입사 날짜에서 4개월을 추가한 결과값
+	select ename, hiredate, add_months(hiredate, 4) from emp;
+	
+2) 형 변환 함수(숫자형, 문자형, 날짜형)
+
+to_char
+	현재 날짜를 문자형으로 변환하여 출력
+	select sysdate, to_char(sysdate, 'yyyy-mm-dd') from dual;
+
+	 현재 날짜와 시간을 출력
+	select to_char(sysdate, 'yyyy/mm/dd, hh24:mi:ss') from dual;
+	
+to_date
+	문자형을 날짜형으로 변환
+	
+	1981년 2월 20일에 입사한 사원을 검색
+	select ename, hiredate from emp where hiredate=to_date(19810220, 'yyyymmdd');
+	
+3) NULL을 다른 값으로 변환하는 NVL함수
+nvl
+	NULL을 0 또는 다른 값으로 변환
+	
+	select ename, sal, comm, job from emp order by job;
+	
+	연봉 계산
+	select ename, sal, comm, sal12+comm, nvl(comm, 0), sal12+nvl(comm, 0) from emp order by job
+	
+4) 선택을 위한 DECODE 함수
+	여러가지 경우에 대해서 선택할 수 있도록 하는 기능을 제공
+	
+	사원의 부서 번호를 이름으로 설정
+	select deptno, decode(deptno, 10, 'a', 20, 'b', 'default') from emp order by deptno;
+
+5) 조건에 따라 서로 다른 처리가 가능한 CASE 함수
+
+```
 
 __08. SQL 복수행 함수 - 그룹 함수__
+```sql
+1) 그룹 함수
+	하나 이상의 행을 그룹으로 묶어 연산하여, 하나의 결과를 나타
+	
+sum
+	그룹 함수를 이용해서 사원의 총 급여
+	 select sum(sal) from emp;
+	 그룹함수의 결과는 사원이 총 14명인데도 결과는 하나의 행으로 출력
+	 
+	 커미션(COMM) 총액
+	  select sum(comm) from emp;
+	  
+avg
+	해당 컬럼 값에 대해 평균
+	급여 평균을 구하
+	select avg(sal) from emp;
+	
 
+max : 지정한 컬럼 값 중에서 최대값
+	
+	가장 높은 급여와 가장 낮은 급여
+	select max(sal), min(sal) from emp;
+	
+count
+	테이블에서 조건을 만족하는 행위 개수
+	사원 테이블의 사원들 중에서 커미션(COMM)을 받은 사원의 수
+	select count(comm) from emp;
+	
+2) group by 절
+	사원 테이블을 부서 번호로 그룹 짓는
+	select deptno from emp group by deptno;
+	
+	소속 부서별 평균 급여
+	select avg(sal) from emp group by deptno;
+	
+	소속 부서별 급여 총액과 평균 급여
+	select deptno, sum(sal), avg(sal) from emp group by deptno;
+	
+3) having 절
+	group by 절에 의해 생성된 결과 값 중 원하는 조건에 부합하는 자료만 보고자 할 때
+	
+	그룹 지어진 부서별 평균 급여가 2000 이상인 부서의 번호와 부서별 평균 급여를 출력
+	select deptno, avg(sal) from emp group by deptno having avg(sal) >= 2000;
+	
+	부서의 최대값과 최소값을 구하되, 최대 급여가 2900 이상인 부서만 출력
+	 select deptno, max(sal), min(sal) from emp group by deptno having max(sal) >= 2900; 
+```
 __09. SQL 고급 함수로 멋진 레포트 만들기__
 
 __10. 조인__
