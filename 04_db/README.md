@@ -18,33 +18,39 @@ __05. 특정 레코드 추출 및 SQL함수 정복하기__
 	"||" 수직바
 ```
 __06. SQL 단일행 함수 - 숫자 함수 문자 함수__
-```
+```sql
 1) 함수의 종류 및 DUAL 테이블
 2) 숫자 함수
-	ABS
+	abs
 		절대값을 
-	FLOOR
+	floor
 		소수점 아래를 버리는 함수
-	ROUND
+	round
 		특정 자릿수에서 반올림
-	TRUNC
+	trunc
 		특정 자릿수에서 잘라
-	MOD
+	mod
 		나누기 연산을 한 후 나머지를 결과로 되돌려주는 함수
 3) 문자 처리 함수
-	UPPER
-	LOWER
-	INITCAP
+	upper
+	lower
+	initcap
 		이니셜만 대문자로
-	LENGTH
+	length
 		문자 길이를 구하
-	LENGTHB
+	lengthb
 		바이트 수
-	INSTR
+	instr
 		특정 문자의 위치를 구하
-	SUBSTR
+	substr
 		대상 문자열이나 컬럼의 자료에서 시작 위치부터 선택 개수만큼의 문자를 추출
+		ex:
+		인덱스 4부터 시작해서 문자 3개를 추출
+		select substr ('welcome to oracle', 4, 3) from dual;
 		
+		ex:
+		9월에 입사한 사원을 출력
+		select ename, 19||substr(hiredate, 1, 2)년도, substr(hiredate, 4, 2)달 from emp where substr(hiredate, 4, 2) = '09';
 ```
 __07. SQL 단일행 함수 - 날짜함수/형 변환함수/일반함수__
 
