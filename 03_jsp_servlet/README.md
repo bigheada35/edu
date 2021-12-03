@@ -99,6 +99,12 @@ __24강. JSTL(JSP standard Tag Library)__
 
 __25강. FrontController 패턴과 Command 패턴__
 - 25-1. url-pattern
+	디렉터리 패턴
+	디렉터리 형태로 서버의 해당 컴포넌트를 찾아서 실행하는 구조 입니다. 
+
+	확장자 패턴
+	확장자 형태로 서버의 해당 컴포넌트를 찾아서 실행하는 구조 입니다. 
+
 - 25-2. FrontController 패턴
 - 25-3. Command 패턴
 
