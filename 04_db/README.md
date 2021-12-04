@@ -4,7 +4,24 @@ __04. SQL*PLUS 명령어의 종류__
 __05. 특정 레코드 추출 및 SQL함수 정복하기__
 ```
 - select/from/where 절
+```sql
+	사원테이블(dept)에서 급여 (sal)가 3000 이상인 사원
+	 select * from emp where sal > 3000;
+```
 - 산술/비교/논리 연산자
+```sql
+	부서 번호(deptno)가 20인 사원
+	select * from emp where deptno = 20;
+	
+	문자, 날짜는 반드시 단일 따옴표 안에 표시해야 한다.
+	(문자는 대소문자 구분 있음)
+	이름(ename)이 FORD 사람의 사번(empno), 이름(ename), 급여(sal)를 출력
+	select empno, ename, sal from emp where ename = 'FORD';
+	
+	1982년 1월 1일 이후에 입사한 사원
+	select empno, ename, sal from emp where hiredate >= '1982/01/01';
+	
+```
 - between and 연산자
 - in
 - like 연산자 와 와일드 카드
