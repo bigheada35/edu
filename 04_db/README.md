@@ -167,26 +167,79 @@ count
 	 select deptno, max(sal), min(sal) from emp group by deptno having max(sal) >= 2900; 
 ```
 __09. SQL 고급 함수로 멋진 레포트 만들기__
-
+```sql
+	1) 자동으로 소계/합계를 구해주는 함수
+	2) 계층형 쿼리 만들기
+	3) 새롭게 추가된 함수로 쿼리문 만들고 결과 보기
+```
 __10. 조인__
-
+```sql
+	1) cartesian product
+	2) equi join
+	3) non-equi join(비등가 조인)
+	4) self join
+	5) outer join
+```
 __11. 서브 쿼리__
-
+```sql
+	1) 단일행 서브 쿼리
+	2) 다중행 서브 쿼리
+```
 __12. 테이블 구조 생성, 변경 삭제하는 DDL__
-
+```sql
+	1) 테이블 구조를 정의하는 create table
+	2) 테이블 구조를 변경하는 alter table
+	3) 테이블 구조를 제거하는 drop table
+	4) 테이블의 모든 로우를 제거하는 truncate table
+	5) 테이블명을 변경하는 rename
+	6) delete, truncate, drop 명령어의 차이점
+	7) 데이터 딕셔너리와 데이터 딕셔너리뷰
+```
 __13. 테이블의 내용을 추가, 수정, 삭제하는 DML__
-
+```sql
+	1) insert 명령문
+	2) 다중 테이블에 다중행 입력하기
+	3) update 명령문
+	4) delete 명령문
+	5) merge 명령문
+```
 __14. 트랜젝션 관리__
-
+```sql
+	1) commit과 rollback
+	2) 자동 commit
+	3) savepoint
+```
 __15. 데이터 무결성을 위한 제약 조건 - 1__
-
+```sql
+	1) not null 제약 조건
+	2) unique 제약 조건
+	3) 컬럼 레벨로 제약 조건 설정하기
+```
 __16. 데이터 무결성을 위한 제약 조건 - 2__
-
+```sql
+	1) primary key
+	2) foreign key  ***
+```
 __17. 가상 테이블인 뷰__
-
-__18. 인덱스__
-
+```sql
+	1) 단순 뷰와 복합 뷰
+	2) with check option / with read only 옵션 알아보기
+	3) 뷰를 이용하여 top-n 구하기
+```
+__18. 인덱스  *** __
+```sql
+	1) 인덱스 생성 및 제거하기
+	2) 인덱스 사용여부 판단 및 재생성하기
+	3) Invisible Index
+```
 __19. 데이터베이스 보완을 위한 권한__
-
+```sql
+	1) 사용자 생성하기
+	2) 권한을 부여하는 grant 명령어
+```
 __20. 시퀀스와 동의어__
-
+```sql
+	1) 시퀀스 실무에 적용하기
+	2) 동의어의 개념과 종류
+	3) 동의어의 생성 및 제거하기
+```
