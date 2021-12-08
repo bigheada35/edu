@@ -70,6 +70,7 @@ __06. SQL 단일행 함수 - 숫자 함수 문자 함수__
 		9월에 입사한 사원을 출력
 		select ename, 19||substr(hiredate, 1, 2)년도, substr(hiredate, 4, 2)달 from emp where substr(hiredate, 4, 2) = '09';
 ```
+
 __07. SQL 단일행 함수 - 날짜함수/형 변환함수/일반함수__
 ```sql
 1) 날짜 함수
