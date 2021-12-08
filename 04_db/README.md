@@ -221,8 +221,51 @@ __10. 조인__
 ```
 __11. 서브 쿼리__
 ```sql
+	select dname from dept where deptno = (select deptno from emp where ename = 'SMITH');
+
 	1) 단일행 서브 쿼리
+		수행 결과가 오직 하나의 로우(행)만을 반환하는 것
+		
+		사원들의 평균 급여보다 더 많은 급여를 받는 사원을 검색하는 쿼리문
+		select ename, sal from emp where sal > (select avg(sal) from emp);
+	
+		ALLEN 급여와 동일하거나 급여를 더 많이 받는 사원과 급여를 출력하는 쿼리문 allen
+		select ename, sal from emp where sal>= (select sal from emp where ename = 'ALLEN');
+		
+		
 	2) 다중행 서브 쿼리
+		서브 쿼리에서의 결과가 두 건 이상 출력되는 것
+		
+		다중행 연산자
+			IN
+			ANY, SOME
+			ALL
+			EXISTS
+	
+		IN
+			연봉을 3000이상 받는 사원이 소속된 부서와 동일한 부서에서 근무하는 사원들의 정보를 출력하는 쿼리문
+			--에러 select ename, sal, deptno from emp where deptno = (select distinct deptno from emp where sal >= 3000);
+			결과가 2개 이상 구해지는 쿼리문을 서브 쿼리로 기술할 때는 다중행 연산자와 함께 사용해야 한다!
+			
+			select ename, sal, deptno from emp where deptno in (select distinct deptno from emp where sal >= 3000);
+		ANY	
+			부서 번호가 30번인 사원들의 급여 중 가장 낮은 값(950)보다 높은 급여를 받는 사원의 이름, 급여를 출력하는 쿼리문
+			select ename, sal from emp where sal > any (select sal from emp where deptno = 30);
+		
+		ALL
+			메인 쿼리의 비교 조건이 서브 쿼리의 검색 결과와 모든 값이 일치하면 참인 연산자
+			
+			30번 소속 사원들 중에서 급여를 가장 많이 받는 사우너보다 더 많은 급여를 받는 사람의 이름과 급여를 출력하는 쿼리문
+			select ename, sal from emp where sal> all (select sal from emp where deptno = 30);
+			
+		EXISTS
+			메인 쿼리의 비교 조건이 서브 쿼리의 결과 중에서 만족하는 값이 하나라도 존재하면 참인 연산자
+			
+			emp테이블에 있는 부서코드(deptno)와 서브 쿼리문에 있는 dept테이블의 deptno를 서로 조인하여, 
+			deptno가 10, 20인 데이터가 존재하면, 
+			emp 테이블 내에 있는 해당 컬럼(ename, deptno, sal)을 출력하는 쿼리문
+			select ename, deptno, sal from emp e where exists (select 1 from dept d where d.deptno in (12, 20) and e.deptno = d.deptno);
+			
 ```
 __12. 테이블 구조 생성, 변경 삭제하는 DDL__
 ```sql
