@@ -20,7 +20,7 @@ __05. 특정 레코드 추출 및 SQL함수 정복하기__
 	
 	1982년 1월 1일 이후에 입사한 사원
 	select empno, ename, sal from emp where hiredate >= '1982/01/01';
-	
+```
 ```
 - between and 연산자
 - in
