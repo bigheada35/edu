@@ -195,8 +195,29 @@ __10. 조인__
 	
 	
 3) non-equi join(비등가 조인)
+	각 사원의 급여가 몇 등급인지 살펴보는 쿼리문
+	select ename, sal, grade from emp, salgrade where sal between losal and hisal;
+	
+	한 명의 사원 이름과 소속 부서명, 급여의 등급을 출력하는 쿼리문
+		(사원테이블의 부서 번호로 부서 테이블을 참조하여 부서의 이름을 가져와야 하고,
+		사원테이블의 급여로 급여 등급테이블을 참조하여 등급을 가져와야 한다
+		3개의 테이블(emp, dept, salgrade)을 조인해야 한다)
+	select e.ename, d.dname, s.grade from emp e, dept d, salgrade s where e.deptno = d.deptno and e.sal between s.losal and s.hisal;
+	
 4) self join
+	EMP테이블을 EMPLOTEE와 MANAGER로 별칭을 지정한 후 특정 사원의 매니저가 누구인지 알아내는 쿼리문
+	select employee.ename||'의 매니저는 '|| manager.ename||'입니다.' from emp employee, emp manager where employee.mgr = manager.empno;
+	
+	
 5) outer join
+	조인 조건에 만족하지 않는 행도 나타내는 조인 기법 --> KING의 메니저는 없어서 출력이 않되는데, 임의로 출력하고자 할때, (+)를 사용함.
+	
+	특정 사원의 매니저가 누구인지 알아내는 쿼리문
+	select employee.ename||'의 매니저는 '|| manager.ename||'입니다.' from emp employee, emp manager where employee.mgr = manager.empno(+);
+	
+	사원테이블과 부서 테이블을 조인하여 사원명과 부서 번호화 부서명을 출력하는 쿼리문
+	select e.ename, e.deptno, d.deptno, d.dname from emp e, dept d where e.deptno(+) = d.deptno;
+	사원테이블에는 부서 번호가 40인 사원이 없지만 외부 조인(OUTER JOIN)을 사용하여 부서 테이블에 있는 부서 번호가 40인 부서명 OPERATION가 나타나도록 한다
 ```
 __11. 서브 쿼리__
 ```sql
