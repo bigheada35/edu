@@ -174,11 +174,29 @@ __09. SQL 고급 함수로 멋진 레포트 만들기__
 ```
 __10. 조인__
 ```sql
-	1) cartesian product
-	2) equi join
-	3) non-equi join(비등가 조인)
-	4) self join
-	5) outer join
+1) cartesian product
+2) equi join
+	예) 사원 정보를 출력할 때, 각 사원이 소속된 부서의 상세 정보를 출력하기 위해 두 개의 테이블을 조인
+	select * from emp, dept where emp.deptno = dept.deptno;
+	deptno를 보면 조인 대상이 되는 테이블에 공통적으로 존재하는 컬럼들과 동일한 조건(=)으로 조인하여 원하는 결과를 얻게 되는것이다.
+	
+	위 결과에서 특정 컬럼의 정보만 얻는 쿼리문
+	select ename, dname from emp, dept where emp.deptno = dept.deptno; 
+	
+	이름이 SCOTT인 사람의 부서명을 출력해 보는 쿼리문
+	select ename, dname from emp, dept where emp.deptno = dept.deptno and ename = 'SMITH'; 
+	
+	부서 번호(DEPTNO)가 EMP테이블과 DEPT테이블에 공통으로 들어있다. 이럴 경우 어느 테이블 소속인지 불분명 하여 오류 메시지가 출력된다. 그렇다면 어떻게 해야할까?
+	
+	select emp.ename, dept.dname, emp.deptno from emp, dept where emp.deptno = dept.deptno and ename = 'SMITH';
+
+	사원(emp)테이블의 별칭을 e로, 부서(dept)테이블의 별칭을 d로 부여하는 쿼리문
+	select e.ename, d.dname, e.deptno from emp e, dept d where e.deptno = d.deptno and ename = 'SMITH';
+	
+	
+3) non-equi join(비등가 조인)
+4) self join
+5) outer join
 ```
 __11. 서브 쿼리__
 ```sql
