@@ -197,11 +197,52 @@ __12. 테이블 구조 생성, 변경 삭제하는 DDL__
 ```
 __13. 테이블의 내용을 추가, 수정, 삭제하는 DML__
 ```sql
-	1) insert 명령문
-	2) 다중 테이블에 다중행 입력하기
-	3) update 명령문
-	4) delete 명령문
-	5) merge 명령문
+1) insert 명령문
+
+2) 다중 테이블에 다중행 입력하기
+
+3) update 명령문
+
+	예 1) 실습에 사용할 테이블을 생성하는 쿼리문
+	drop table emp01;
+	create table emp01 as select * from emp;
+	
+	예 2) 모든 사원의 부서 번호를 30번으로 수정 후 확인하는 쿼리문
+	update emp01 set deptno=30;
+	
+	예) 사원의 급여를 10% 인상시키는 UPDATE문을 만드는 쿼리문
+	update emp01 set sal = sal*1.1; 
+	
+	모든 입사일을 오늘로 수정하는 쿼리문
+	update emp01 set hiredate = sysdate; 
+	
+	실습에 사용할 테이블을 생성하는 쿼리문
+	drop table emp01;
+	create table emp01 as select * from emp;
+	
+	부서 번호가 10번인 사원의 부서 번호를 40번으로 수정하고 확인하는 쿼리문
+	update emp01 set deptno = 40 where deptno = 10;
+	
+	JOB 컬럼값이 MANAGER인 경우, 급여를 10% 인상하는 쿼리문
+	update emp01 set sal = sal * 1.1 where job = 'manager';
+	
+	1987년에 입사한 사원의 입사일을 오늘로 수정하는 쿼리문
+	update emp01 set hiredate = sysdate where substr(hiredate, 1, 2) = '87';
+	
+	SCOTT 사원의 부서번호는 20번으로, JOB 컬럼값은 MANAGER로 한꺼번에 수정하는 쿼리문
+	update emp01 set deptno=20, job='manager' where ename='scott';
+	
+	SCOTT 사원의 입사 날짜는 오늘로, 급여는 50으로, 커미션은 4000으로 수정하는 쿼리문
+	update emp01 set hiredate = sysdate, sal=50, comm=4000 where ename='scott';
+	
+	SCOTT 사원의 자료가 조건에 맞게 잘 수정되었는지 확인하는 쿼리문
+	select * from emp01 where ename = 'scott';
+	
+	20번 부서의 지역명을 40번 부서의 지역명으로 변경하기 위해서 서브 쿼리문을 사용한 쿼리문
+	update dept01 set loc = (select loc from dept01 where deptno=40) where deptno=20;
+	
+4) delete 명령문
+5) merge 명령문
 ```
 __14. 트랜젝션 관리__
 ```sql
