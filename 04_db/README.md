@@ -224,19 +224,19 @@ __13. 테이블의 내용을 추가, 수정, 삭제하는 DML__
 	update emp01 set deptno = 40 where deptno = 10;
 	
 	JOB 컬럼값이 MANAGER인 경우, 급여를 10% 인상하는 쿼리문
-	update emp01 set sal = sal * 1.1 where job = 'manager';
+	update emp01 set sal = sal * 1.1 where job = 'MANAGER';
 	
 	1987년에 입사한 사원의 입사일을 오늘로 수정하는 쿼리문
 	update emp01 set hiredate = sysdate where substr(hiredate, 1, 2) = '87';
 	
 	SCOTT 사원의 부서번호는 20번으로, JOB 컬럼값은 MANAGER로 한꺼번에 수정하는 쿼리문
-	update emp01 set deptno=20, job='manager' where ename='scott';
+	update emp01 set deptno=20, job='MANAGER' where ename='SCOTT';
 	
 	SCOTT 사원의 입사 날짜는 오늘로, 급여는 50으로, 커미션은 4000으로 수정하는 쿼리문
-	update emp01 set hiredate = sysdate, sal=50, comm=4000 where ename='scott';
+	update emp01 set hiredate = sysdate, sal=50, comm=4000 where ename='SCOTT';
 	
 	SCOTT 사원의 자료가 조건에 맞게 잘 수정되었는지 확인하는 쿼리문
-	select * from emp01 where ename = 'scott';
+	select * from emp01 where ename = 'SCOTT';
 	
 	20번 부서의 지역명을 40번 부서의 지역명으로 변경하기 위해서 서브 쿼리문을 사용한 쿼리문
 	update dept01 set loc = (select loc from dept01 where deptno=40) where deptno=20;
