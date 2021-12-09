@@ -2,13 +2,25 @@
 __04. SQL*PLUS 명령어의 종류__
 	
 __05. 특정 레코드 추출 및 SQL함수 정복하기__
-```
+
+
 - select/from/where 절
+
+- desc
+- select
+- where 
+
 ```sql
 	사원테이블(dept)에서 급여 (sal)가 3000 이상인 사원
 	 select * from emp where sal > 3000;
 ```
+
 - 산술/비교/논리 연산자
+- 산술 연산자
+```sql
+	select ename, sal, sal+100 from emp;
+```
+- 비교 연산자
 ```sql
 	부서 번호(deptno)가 20인 사원
 	select * from emp where deptno = 20;
@@ -21,8 +33,45 @@ __05. 특정 레코드 추출 및 SQL함수 정복하기__
 	1982년 1월 1일 이후에 입사한 사원
 	select empno, ename, sal from emp where hiredate >= '1982/01/01';
 ```
+- 논리연산자
+```sql
+AND
+	select empno, deptno, job from emp where deptno = 10 and job = 'MANAGER';
+	
+OR : 두 가지 조건 중에서 한 가지만 만족하더라도 검색할 수 있다.	
+	select empno, deptno, job from emp where deptno = 10 or job = 'MANAGER';
+	
+NOT : 조건에 만족하지 못하는 것만 검색할 수 있다	
+	select empno, deptno, job from emp where not deptno = 10;
+	
+	select empno, deptno, job from emp where deptno <> 10;
+	
+	select empno, deptno, job from emp where deptno != 10;
 ```
 - between and 연산자
+```sql
+between
+	하나의 컴럼의 값이 범위 내에 속하는지 알아보기 위한 연산자
+	숫자형, 문자형, 날짜형에 사용 가능
+	
+	급여가 2000~3000 사이의 사원을 검색하는 쿼리문
+	select * from emp where sal between 2000 and 3000;
+
+	급여가 2000 미만이거나 3000 초과인 사원을 검색하는 쿼리문
+	select * from emp where sal not between 2000 and 3000;
+	
+	1987년에 입사한 사원을 출력하는 쿼리문
+	select * from emp where hiredate between '1987/01/01' and '1987.12.31';
+	
+IN
+	커미션(COMM)이 300 혹은 500 혹은 1400인 사원이 있는지 검색하는 쿼리문
+	select * from emp where comm in (300, 500, 1400);
+	
+	
+	커미션(COMM)이 300 혹은 500 혹은 1400이 아닌 사원이 있는지 검색하는 쿼리문
+	select * from emp where comm not in (300, 500, 1400);
+
+```
 - in
 - like 연산자 와 와일드 카드
 	%
