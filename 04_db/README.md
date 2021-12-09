@@ -179,37 +179,153 @@ NOT LIKE 연산자
 __06. SQL 단일행 함수 - 숫자 함수 문자 함수__
 ```sql
 1) 함수의 종류 및 DUAL 테이블
+	DUAL 테이블
+		한 행으로 결과를 출력하기 위한 테이블
+		산술 연산이나 가상 컬럼 등의 값을 한번만 출력하고 싶을 때 많이 사용한다
+	
+		select 24*60 from emp; 
+		이렇게 하면, emp 의 행(12줄) 만큼 출력이 된다.
+		
+		산술 연산의 결과를 한 줄로 얻기 위해서 오라클에서 제공하는 테이블
+		select 24*60 from dual;
+		이렇게 하면, dual 의 행( 1줄) 만큼  산술연산의 결과가 1줄로 출력된다.
+		
+		DUAL 테이블이 쓰이는 적절한 예는 현재 날짜를 구할때이다.
+		
+			현재 날짜를 구하는 쿼리문
+			select sysdate from dual;
+
 2) 숫자 함수
 	abs
-		절대값을 
+		절대값을 구하는 함수
+		
+		-10에 대한 절대값을 구하는 쿼리문
+		select -10, abs(-10) from dual;
+		
 	floor
-		소수점 아래를 버리는 함수
+		소수점 아래를 버리는 함수이다
+		
+		34.5432를 FLOOR 함수에 적용하는 쿼리문
+		select 34.5432, floor(34.5432) from dual;
+		
+		결과: 34
+		
 	round
-		특정 자릿수에서 반올림
+		특정 자릿수에서 반올림하는 함수이다.
+		34.5678을 반올림하는 쿼리문
+		 select 34.5678, round(34.5678) from dual;
+		 
+		 결과: 35
+		
+		특정 자릿수에서 34.5678을 반올림하는 쿼리문
+		select 34.5678, round(34.5678, 2) from dual;
+		  
+		 결과: 34.57
+		 
 	trunc
-		특정 자릿수에서 잘라
+		특정 자릿수에서 잘라내는 함수이다
+		두번째 인자값이 2인 경우 : 소수점 이하 세번째 자리에서 버림 연산을 수행한다
+		두번째 인자값이 0인 경우 : 소수점 자리에서 버림 연산을 수행한다
+		두번째 인자값이 -1인 경우 : 일의 자리에서 버림 연산을 수행한다.
+		두번째 인자값이 없는 경우 : 소수점 자리에서 버림 연산을 수행한다
+		
+		select trunc(34.5678, 2), trunc(34.5678, -1), trunc(34.5678), trunc(34.5678, 0) from dual;
+		
+		결과:     34.56                 30                   34                   34
 	mod
-		나누기 연산을 한 후 나머지를 결과로 되돌려주는 함수
+		나누기 연산을 한 후 나머지를 결과로 되돌려주는 함수이다
+		select mod(27, 2), mod(27, 5), mod(27, 7) from dual;
+		
+		결과:        1            2           6
+		
 3) 문자 처리 함수
 	upper
+		대문자로 변환하는 함수이다.
+		select 'welcome to oracle' "적용전", upper('welcome to oracle') "upper적용후" from dual;
+		
 	lower
+		소문자로 변환하는 함수이다.
+		select 'welcome to oracle' "적용전", lower('welcome to oracle') "lower적용후" from dual;
+		
 	initcap
-		이니셜만 대문자로
+		이니셜만 대문자로 변환하는 함수이다.
+		select 'welcome to oracle' "적용전", initcap('welcome to oracle') "initcap적용후" from dual;
+		
+		결과:                        -->  Welcome To Oracle
+		
 	length
-		문자 길이를 구하
+		문자 길이를 구하는 함수이다.
+		select length('oracle'), length('오라클') from dual;
+		
+		결과:            6                    3
+		
 	lengthb
-		바이트 수
+		바이트 수를 알려주는 함수이다
+		select lengthb('oracle'), lengthb('오라클') from dual;
+		결과 :                6                  6
+		
 	instr
-		특정 문자의 위치를 구하
+		특정 문자의 위치를 구하는 함수이다.
+		select instr('welcome to Oracle', 'O') from dual;
+		
+		결과:                    12
+		
+		
 	substr
 		대상 문자열이나 컬럼의 자료에서 시작 위치부터 선택 개수만큼의 문자를 추출
-		ex:
-		인덱스 4부터 시작해서 문자 3개를 추출
-		select substr ('welcome to oracle', 4, 3) from dual;
 		
-		ex:
-		9월에 입사한 사원을 출력
-		select ename, 19||substr(hiredate, 1, 2)년도, substr(hiredate, 4, 2)달 from emp where substr(hiredate, 4, 2) = '09';
+			인덱스 4부터 시작해서 문자 3개를 추출
+			select substr ('welcome to oracle', 4, 3) from dual;
+		
+			사원들의 입사일에서 입사 년도와 입사 달을 출력하는 쿼리문
+			select ename, 19||substr(hiredate, 1, 2)년도, substr(hiredate, 4, 2)달 from emp;
+		
+			9월에 입사한 사원을 출력
+			select ename, 19||substr(hiredate, 1, 2)년도, substr(hiredate, 4, 2)달 from emp where substr(hiredate, 4, 2) = '09';
+	substrb 
+		명시된 개수만큼의 문자가 아닌 바이트 수를 잘라낸다
+		substr은 한글 한자를 1바이트로 보지만 substrb는 2바이트로 보기 때문에 밑에 결과는 다르게 나타난다
+		
+		select substr('웰컴투오라클', 3, 4), substrb('오라클오라클', 3, 4) from dual;
+		
+		결과:            투오라클                        라클   
+		
+	lpad/rpad
+		특정 기호로 채우는 함수이다.
+		
+		lpad(left padding) : 오른쪽 정렬 후 왼쪽에 생긴 빈 공백에 특정 문자를 채우는 함수이다.
+		
+			20자리를 마련한 후 오른쪽에 대상 문자열을 출력하고, 왼쪽에 생긴 빈 공간을 '#' 기호로 채우는 쿼리문
+			select lpad('oracle', 20, '#') from dual;
+		
+			결과: ##############oracle
+		
+		rpad(right padding) : 왼쪽 정렬 후 오른쪽에 생긴 빈 공백에 특정 문자를 채우는 함수이다
+		
+			20자리를 마련한 후 왼쪽에 대상 문자열을 출력하고, 오른쪽에 생긴 빈 공간을 '#' 기호로 채우는 쿼리문
+			select rpad('oracle', 20, '#') from dual;
+		
+	ltrim/rtrim	
+		ltrim : 문자열 왼쪽(앞)의 공백 문자들을 삭제한다.
+			select ltrim(' oracle') from dual;
+			결과:oracle
+			
+		rtrim : 문자열 오른쪽(뒤)의 공백 문자들을 삭제한다.	
+			select rtrim('oracle ') from dual;
+	
+	trim
+		특정 문자를 잘라내는 함수이다.
+		컬럼이나 대상 문자열에서 특정 문자가 첫 번째나 마지막에 위치해 있으면, 
+		해당 특정 문자를 잘라낸 후 남은 문자열만 반환한다.
+		
+			select trim('a' from 'aaaaORACLEaaaaa') from dual;
+			
+			결과:ORACLE
+			
+			공백 문자가 삭제된다
+			select trim(' ORACLE ') from dual;
+			결과:ORACLE
+	
 ```
 
 __07. SQL 단일행 함수 - 날짜함수/형 변환함수/일반함수__
