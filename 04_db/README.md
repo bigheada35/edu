@@ -539,7 +539,30 @@ __12. 테이블 구조 생성, 변경 삭제하는 DDL__
 __13. 테이블의 내용을 추가, 수정, 삭제하는 DML__
 ```sql
 1) insert 명령문
-
+	테이블에 새로운 로우를 추가할 때 사용하는 SQL문
+	테이블에 새로운 데이터를 입력하기 위해 사용하는 데이터 조작어
+	테이블의 모든 컬럼에 자료를 입력하는 경우 컬럼 목록을 기술하지 않아도 된다
+	 컬럼 목록이 생략되면 VALUES절 다음의 값들이 테이블의 기본 컬럼 순서대로 입력된다
+		
+		실습을 위해 dept테이블을 dept02테이블로로 구조만 복사한 후 
+		데이터를 추가한 후 데이터를 조회하는 쿼리문
+			create table dept02 as select * from dept where 1=0;
+			insert into dept02 (deptno, dname, loc) values (10, 'accounting', 'new york');
+			select * from dept02;
+	
+		insert 구문을 이용하여 컬럼명을 생략하고, 데이터를 추가한 후 조회하는 쿼리문
+			insert into dept02 values (20, 'research', 'dallas');
+			select * from dept02;
+			
+		 실습을 위해 dept테이블을 dept03테이블로로 구조만 복사한 후 
+		 서브 쿼리를 이용하여 데이터를 추가한 후 데이터를 조회하는 쿼리문
+			//테이블 구조만 복사
+			create table dept03 as select * from dept where 1=0; 
+			//dept에 있는 로우,컬럼을 모두 복사해 넣음.
+			insert into dept03 select * from dept;
+			select * from dept03;
+			
+			
 2) 다중 테이블에 다중행 입력하기
 
 3) update 명령문
@@ -583,6 +606,9 @@ __13. 테이블의 내용을 추가, 수정, 삭제하는 DML__
 	update dept01 set loc = (select loc from dept01 where deptno=40) where deptno=20;
 	
 4) delete 명령문
+
+
+
 5) merge 명령문
 ```
 __14. 트랜젝션 관리__
