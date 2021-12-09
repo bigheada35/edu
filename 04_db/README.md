@@ -70,19 +70,111 @@ IN
 	
 	커미션(COMM)이 300 혹은 500 혹은 1400이 아닌 사원이 있는지 검색하는 쿼리문
 	select * from emp where comm not in (300, 500, 1400);
+```
 
-```
-- in
+2)SQL문을 이용하여 데이터 가져오기-2
+
 - like 연산자 와 와일드 카드
+```sql
+LIKE
+	컬럼에 저장된 데이터의 시작 위치에 데이터가 일치하면 조회가 가능한 연산자
+	
 	%
+	특정 문자가 포함되기만 하고 그 이전이나 이후에 어떤 문자가 몇 개가 오든지 상관없다는 의미를 표현하기 위해서는 LIKE 연산자와 함께 사용
+		
+		이름이 F로 시작하는 사람을 찾는 쿼리문
+		select * from emp where ename like 'f%';
+		
+		위치 상관 없이 이름 중에 A가 들어있는 사람을 찾는 쿼리문
+		select * from emp where ename like '%a%';
+
+		이름이 N으로 끝나는 사람을 찾는 쿼리문
+		select * from emp where ename like '%n';
+		
 	_
-	ESCAPE 옵션				
-- null을 위한 연산자	
-- 정렬을 위한 order by절
-- distinct/별칭/연결 연산자
-- 연결 연산자
-	"||" 수직바
+	어떤 문자가 오든 상관없다는 의미로 사용
+	%와의 차이점은 %는 몇 개의 문자가 오든 상관이 없지만 _는 단 한 문자에 대해서만 와일드 카드 역할을 한다
+	조건의 문자 위치와 순서에 유의하기 바란다
+	
+		이름의 두 번째 글자가 A인 사원을 찾는 쿼리문
+		select * from emp where ename like '_A%';
+	
+		이름의 세 번째 글자가 A인 사원을 찾는 쿼리문
+		select * from emp where ename like '__A%';
+	
+	escape 옵션
+		LIKE 연산자에서 사용하는 와일드 문자(%, _) 자체를 포함한 문자열을 검색할 때, 
+		와일드 문자를 일반 문자처럼 취급하기 위한 옵션이다.
+		
+		해당하는 와일드 문자 앞에 사용자가 원하는 한 글자를 적고 escape 옵션을 사용하여 
+		해당 문자 뒤에 한 글자는 일반 문자 그대로 인식되도록 설정 되어있다.
+		
+		문자열 가운데 언더바(_)가 포함된 경우를 검색하는 쿼리문
+		select * from emp where ename like '%_%';
+		
+		이름(ENAME)이 '%\%%'와 같은 데이터를 검색하는 쿼리문
+		 select * from emp where ename like '%\%%' escape'\';
+
+NOT LIKE 연산자
+	
+	이름에 A를 포함하지 않는 사람만 검색하는 쿼리문
+	select * from emp where ename not like '%A%';
 ```
+- null을 위한 연산자	
+```sql
+	is null/ is not null
+		
+		커미션(COMM)을 받지 않는 사원을 검색하는 쿼리문
+		select ename, job, comm from emp where comm is null;
+		
+		
+```
+- 정렬을 위한 order by절
+```sql
+	사원들의 급여를 오름차순으로 정렬하는 쿼리문
+	select * from emp order by sal asc;
+	
+	가장 최근에 입사한 사원부터 출력하는 쿼리문
+	select * from emp order by hiredate desc;
+	
+```
+- distinct/별칭/연결 연산자
+```sql
+	distinct
+		동일한 데이터 값들이 중복되어 출력되지 않도록 사용
+		
+		사원들이 소속되어 있는 부서의 번호를 출력하는 쿼리문
+		select distinct deptno from emp;
+		
+	별칭 연산자
+		컬럼 이름으로 의미를 알아 보기 힘든 경우 컬럼의 이름에 별칭을 부여할 수 있다
+		
+		select ename, sal12+nvl(comm, 0) from emp;
+
+		select ename, sal12+nvl(comm, 0) as annsal from emp;
+		
+	" "(큰 따옴표)로 별칭 부여하기
+		공백문자나 특수 문자를 포함시킬때 사용한다
+		
+		select ename, sal*12+nvl(comm, 0) "＄＃＃A n n s a l＃＃＄" from emp;
+		
+	한글로 별칭 부여하기
+		select ename, sal*12+nvl(comm, 0) "연봉" from emp;
+		
+	연결 연산자
+		select문 내부에 "||" 수직바를 사용해서 표현한다
+		
+	
+```
+
+- 연결 연산자
+```sql
+	"||" 수직바
+	기존의 컬럼내에 문자열을 추가하고자 할 ? 사용한다.
+	
+		select ename || ' is a ' || job "연결정의 예" from emp;
+```
+
 __06. SQL 단일행 함수 - 숫자 함수 문자 함수__
 ```sql
 1) 함수의 종류 및 DUAL 테이블
