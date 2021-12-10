@@ -331,41 +331,41 @@ __06. SQL 단일행 함수 - 숫자 함수 문자 함수__
 __07. SQL 단일행 함수 - 날짜함수/형 변환함수/일반함수__
 ```sql
 1) 날짜 함수
-sysdate
-	시스템에서 현재 날짜를 읽어 와서 출력
-	select sysdate from dual;
-	
-months_between	
-	각 직원들이 근무한 개월 수
-	select ename, sysdate, hiredate, months_between(sysdate, hiredate) 근무개월수 from emp;
-	
-add_months
-	입사 날짜에서 4개월을 추가한 결과값
-	select ename, hiredate, add_months(hiredate, 4) from emp;
-	
+	sysdate
+		시스템에서 현재 날짜를 읽어 와서 출력
+		select sysdate from dual;
+		
+	months_between	
+		각 직원들이 근무한 개월 수
+		select ename, sysdate, hiredate, months_between(sysdate, hiredate) 근무개월수 from emp;
+		
+	add_months
+		입사 날짜에서 4개월을 추가한 결과값
+		select ename, hiredate, add_months(hiredate, 4) from emp;
+		
 2) 형 변환 함수(숫자형, 문자형, 날짜형)
 
-to_char
-	현재 날짜를 문자형으로 변환하여 출력
-	select sysdate, to_char(sysdate, 'yyyy-mm-dd') from dual;
+	to_char
+		현재 날짜를 문자형으로 변환하여 출력
+		select sysdate, to_char(sysdate, 'yyyy-mm-dd') from dual;
 
-	 현재 날짜와 시간을 출력
-	select to_char(sysdate, 'yyyy/mm/dd, hh24:mi:ss') from dual;
-	
-to_date
-	문자형을 날짜형으로 변환
-	
-	1981년 2월 20일에 입사한 사원을 검색
-	select ename, hiredate from emp where hiredate=to_date(19810220, 'yyyymmdd');
+		 현재 날짜와 시간을 출력
+		select to_char(sysdate, 'yyyy/mm/dd, hh24:mi:ss') from dual;
+		
+	to_date
+		문자형을 날짜형으로 변환
+		
+		1981년 2월 20일에 입사한 사원을 검색
+		select ename, hiredate from emp where hiredate=to_date(19810220, 'yyyymmdd');
 	
 3) NULL을 다른 값으로 변환하는 NVL함수
-nvl
-	NULL을 0 또는 다른 값으로 변환
-	
-	select ename, sal, comm, job from emp order by job;
-	
-	연봉 계산
-	select ename, sal, comm, sal12+comm, nvl(comm, 0), sal12+nvl(comm, 0) from emp order by job
+	nvl
+		NULL을 0 또는 다른 값으로 변환
+		
+		select ename, sal, comm, job from emp order by job;
+		
+		연봉 계산
+		select ename, sal, comm, sal12+comm, nvl(comm, 0), sal12+nvl(comm, 0) from emp order by job
 	
 4) 선택을 위한 DECODE 함수
 	여러가지 경우에 대해서 선택할 수 있도록 하는 기능을 제공
