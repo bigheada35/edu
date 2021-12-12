@@ -1,12 +1,12 @@
 
 __01. STS 에서 프로젝트 만들기 방법__
-- 1) 불가
+- 1)불가
 ```java
 
 new -> spring legacy project -> simple spring Maven  --> 않됨 --;
 ```
 
-- 2) 메이븐 프로젝트 만들기
+- 2)메이븐 프로젝트 만들기
 ```java
 new -> maven project -> new maven project -> filter : quickstart
   group id 가 org.apache.maven.archetypes 이고
@@ -17,13 +17,13 @@ new -> maven project -> new maven project -> filter : quickstart
     package: edu.kosmo.testHome2
 ```
  
-- 3) Spring Bean Configuration (스프링 DI 지시서) 만들기
+- 3)Spring Bean Configuration (스프링 DI 지시서) 만들기
 ```java
 edu.kosmo.testHome2 -> 마우스 오른쪽 버턴 -> new -> Spring Bean Configuration 파일 -> 
 Filename : (ex) ctx  ->   ctx.xml 파일이 생성이 됨.
 ```
 
-- 4) 메이븐 프로젝트에서  스프링 라이브러리 사용 가능하도록 하기
+- 4)메이븐 프로젝트에서  스프링 라이브러리 사용 가능하도록 하기
 ```java
 pom.xml 파일 안의
 <dependencies>
