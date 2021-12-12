@@ -69,5 +69,22 @@ public static void main( String[] args )
  		<constructor-arg name="height" value="20"/>
  	</bean>
 	
-
+Âü°í : 
+<!--    Rectangle rec = new Rectangle();
+		rec.setWidth(10);
+		rec.setHieght(10);
+        Triangle tri = new Triangle();
+		tri.setWidth(20);
+		tri.setHeight(20);
+ -->
+ 
+  	<bean id="rec" class="edu.kosmo.testHome.Rectangle">
+ 		<property name="width" value="10"/>
+ 		<property name="height" value="10"/>
+ 	</bean>
+ 	<bean id="try" class="edu.kosmo.testHome.Triangle">
+ 		<property name="width" value="20"/>
+ 		<property name="height" value="20"/>
+ 	</bean>
+	
 ```
