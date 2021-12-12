@@ -8,7 +8,7 @@ new -> spring legacy project -> simple spring Maven  --> 않됨 --;
 
 - 2)메이븐 프로젝트 만들기
 ```java
-new -> maven project -> new maven project -> filter 에 quickstart 을 입력하여 기달리면
+new -> maven project -> new maven project -> filter 에 quickstart 을 입력한뒤 기달리면
 아래에 리스트가 생성이 됨
 ->
   group id 가 org.apache.maven.archetypes 이고
