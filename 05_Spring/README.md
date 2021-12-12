@@ -7,7 +7,7 @@ new -> spring legacy project -> simple spring Maven  --> 않됨 --;
 ```
 
 - 2)메이븐 프로젝트 만들기
-```java
+```xml
 new -> maven project -> new maven project -> filter 에 quickstart 을 입력한뒤 기달리면
 아래에 리스트가 생성이 됨
 ->
@@ -26,7 +26,7 @@ Filename : (ex) ctx  ->   ctx.xml 파일이 생성이 됨.
 ```
 
 - 4)메이븐 프로젝트에서  스프링 라이브러리 사용 가능하도록 하기
-```java
+```xml
 pom.xml 파일 안의
 <dependencies>
 </dependencies>
@@ -45,7 +45,7 @@ pom.xml 파일 안의
 __02. STS 에서 프로젝트 에서, Spring 사용하기.__
 
 - 1)App.java 화일 안에
-```java
+```xml
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -61,7 +61,7 @@ public static void main( String[] args )
 ```
 
 - 2)appCTX5.xml 화일 안에서  bean 태그 통해 생성자 파라메터 형태로 클래스 추가 하기
-```java
+```xml
 <!--    Rectangle rec = new Rectangle(10,10);
         Triangle tri = new Triangle(10,10);
  -->
