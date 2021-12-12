@@ -2,10 +2,13 @@
 __01. STS 에서 프로젝트 만들기 방법__
 
 ```java
-1) 불가
+ - 1) 불가
+```java 
 new -> spring legacy project -> simple spring Maven  --> 않됨 --;
+```
 
-2) 메이븐 프로젝트 만들기
+- 2) 메이븐 프로젝트 만들기
+```java
 new -> maven project -> new maven project -> filter : quickstart
   group id 가 org.apache.maven.archetypes 이고
  Artifact id가 maven-archetype-quickstart 인 것을
@@ -13,14 +16,16 @@ new -> maven project -> new maven project -> filter : quickstart
      Grou Id : edu.kosmo
     Artifact Id : testHome2
     package: edu.kosmo.testHome2
-
+```
  
-3) Spring Bean Configuration (스프링 DI 지시서) 만들기
+- 3) Spring Bean Configuration (스프링 DI 지시서) 만들기
+```java
 edu.kosmo.testHome2 -> 마우스 오른쪽 버턴 -> new -> Spring Bean Configuration 파일 -> 
 Filename : (ex) ctx  ->   ctx.xml 파일이 생성이 됨.
+```
 
-
-4) 메이븐 프로젝트에서  스프링 라이브러리 사용 가능하도록 하기
+- 4) 메이븐 프로젝트에서  스프링 라이브러리 사용 가능하도록 하기
+```java
 pom.xml 파일 안의
 <dependencies>
 </dependencies>
@@ -37,10 +42,9 @@ pom.xml 파일 안의
 ```
 
 __02. STS 에서 프로젝트 에서, Spring 사용하기.__
-```java
-1)
-App.java 화일 안에
 
+- 1)App.java 화일 안에
+```java
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -53,9 +57,10 @@ public static void main( String[] args )
 	Triangle tri = context.getBean(Triangle.class);
 	를 사용하기.
 }
+```
 
-2)appCTX5.xml 화일 안에서  <bean></bean>으로 클래스 추가 하기
-
+- 2)appCTX5.xml 화일 안에서  <bean></bean> 통해 생성자 파라메터 형태로 클래스 추가 하기
+```java
 <!--    Rectangle rec = new Rectangle(10,10);
         Triangle tri = new Triangle(10,10);
  -->
@@ -68,8 +73,11 @@ public static void main( String[] args )
  		<constructor-arg name="width" value="20"/>
  		<constructor-arg name="height" value="20"/>
  	</bean>
-	
-참고 : 
+```
+
+- 3)appCTX5.xml 화일 안에서  <bean></bean> 통해 setter 형태로 클래스 추가 하기
+```java
+
 <!--    Rectangle rec = new Rectangle();
 		rec.setWidth(10);
 		rec.setHieght(10);
