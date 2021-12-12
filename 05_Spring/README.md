@@ -59,8 +59,9 @@ public static void main( String[] args )
 	를 사용하기.
 }
 ```
+- (2-1), (2-2), (2-3) 방법중 하나를 선택하여 사용
 
-- 2)appCTX5.xml 화일 안에서  bean 태그 통해 생성자 파라메터 형태로 클래스 추가 하기
+- (2-1)appCTX5.xml 화일 안에서  bean 태그 통해 생성자 파라메터 형태로 클래스 추가 하기
 ```xml
 <!--    Rectangle rec = new Rectangle(10,10);
         Triangle tri = new Triangle(10,10);
@@ -76,7 +77,7 @@ public static void main( String[] args )
  	</bean>
 ```
 
-- 3)appCTX5.xml 화일 안에서  bean 태그  통해 setter 형태로 클래스 추가 하기
+- (2-2)appCTX5.xml 화일 안에서  bean 태그  통해 setter 형태로 클래스 추가 하기
 ```java
 
 <!--    Rectangle rec = new Rectangle();
@@ -97,7 +98,7 @@ public static void main( String[] args )
  	</bean>
 	
 ```
-- 4)p네임스페이스 이용하기.
+- (2-3)p네임스페이스 이용하여 클래스 추가 하기
 ```
 (1)
 spring bean configuration 파일 ( appCTX5.xml ) 의 왼쪽 아래에
