@@ -99,7 +99,7 @@ public static void main( String[] args )
 	
 ```
 - (2-3)p네임스페이스 이용하여 클래스 추가 하기
-```
+```xml
 (1)
 spring bean configuration 파일 ( appCTX5.xml ) 의 왼쪽 아래에
 source 탭을 namespace 탭으로 선택 변경
