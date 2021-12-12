@@ -7,7 +7,7 @@ new -> spring legacy project -> simple spring Maven  --> 않됨 --;
 ```
 
 - 2)메이븐 프로젝트 만들기
-```xml
+```java
 new -> maven project -> new maven project -> filter 에 quickstart 을 입력한뒤 기달리면
 아래에 리스트가 생성이 됨
 ->
@@ -45,7 +45,7 @@ pom.xml 파일 안의
 __02. STS 에서 프로젝트 에서, Spring 사용하기.__
 
 - 1)App.java 화일 안에
-```xml
+```java
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
