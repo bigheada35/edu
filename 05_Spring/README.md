@@ -1,7 +1,7 @@
 
 __01. STS 에서 프로젝트 만들기 방법__
 
-```spring
+```java
 1) 불가
 new -> spring legacy project -> simple spring Maven  --> 않됨 --;
 
@@ -36,8 +36,8 @@ pom.xml 파일 안의
 
 ```
 
-__02. STS 에서 프로젝트 에서, Spring 사용하기.
-```spring
+__02. STS 에서 프로젝트 에서, Spring 사용하기.__
+```java
 1)
 App.java 화일 안에
 
