@@ -97,3 +97,23 @@ public static void main( String[] args )
  	</bean>
 	
 ```
+- 4)p네임스페이스 이용하기.
+```
+(1)
+spring bean configuration 파일 ( appCTX5.xml ) 의 왼쪽 아래에
+source 탭을 namespace 탭으로 선택 변경
+
+(2) p - http://www.springframework.org/schema/p  부분을 체크
+
+(3) source 탭으로 돌아옴
+	appCTX5.xml의 소스의 상단에
+		xmlns:p="http://www.springframework.org/schema/p"
+	가 추가되어 있음.
+	
+ (4) appCTX5.xml의 소스에서,
+ 
+	<bean id="rec" class="edu.kosmo.testHome.Rectangle" p:width="10" p:height="10"/>
+	<bean id="try" class="edu.kosmo.testHome.Triangle" p:width="20" p:height="20"/>
+	
+	이렇게 사용
+```	
