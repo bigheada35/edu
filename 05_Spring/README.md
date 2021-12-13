@@ -15,8 +15,8 @@ new -> maven project -> new maven project -> filter 에 quickstart 을 입력한뒤 기
  Artifact id가 maven-archetype-quickstart 인 것을
 선택 -> 
      Grou Id : edu.kosmo
-    Artifact Id : testHome2
-    package: edu.kosmo.testHome2
+	 Artifact Id : shape
+    package: edu.kosmo.shape
 ```
  
 - 3)Spring Bean Configuration (스프링 DI 지시서) 만들기
