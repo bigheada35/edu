@@ -760,3 +760,13 @@ select e.ename, e.deptno, e.job from emp e, dept d where e.deptno=d.deptno and d
 ```
 
 ![그림](PNG/1210_14.PNG)
+
+
+- 41> KING에게 보고하는 모든 사원의 이름과 급여를 출력하라.
+```sql
+select ename, sal from emp where mgr=(select empno from emp where ename='KING');
+```
+
+![그림](PNG/1210_15.PNG)
+
+![그림](PNG/1210_16.PNG)
