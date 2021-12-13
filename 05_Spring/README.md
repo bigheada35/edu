@@ -21,8 +21,12 @@ new -> maven project -> new maven project -> filter 에 quickstart 을 입력한뒤 기
  
 - 3)Spring Bean Configuration (스프링 DI 지시서) 만들기
 ```java
-edu.kosmo.testHome2 -> 마우스 오른쪽 버턴 -> new -> Spring Bean Configuration 파일 -> 
-Filename : (ex) ctx  ->   ctx.xml 파일이 생성이 됨.
+1. src/main/ 밑에 디렉토리 resources 를 만들기
+
+2. src/main/resources 밑에 
+	마우스 오른쪽 버턴 -> new -> Spring Bean Configuration 파일 -> 
+		Filename :  appCTX.xml 
+		파일 만들기.
 ```
 
 - 4)메이븐 프로젝트에서  스프링 라이브러리 사용 가능하도록 하기
@@ -53,15 +57,36 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public static void main( String[] args )
 {
 	안에,
-	ApplicationContext context = new ClassPathXmlApplicationContext("edu/kosmo/testHome/appCTX5.xml");
-	Rectangle rec = context.getBean(Rectangle.class);
-	Triangle tri = context.getBean(Triangle.class);
-	를 사용하기.
+	
+	String config = "classpath:appCTX.xml";
+	AbstractApplicationContext ctx = new GenericXmlApplicationContext(config);
+	
+	를 추가하기.
+	
+	그리고 bean 안에 생성된 객체를 가져다가  변수에 대입하기.
+	(ex)
+		Shape shape = ctx.getBean("shape", Shape.class);
+		
 }
 ```
-- (2-1), (2-2), (2-3) 방법중 하나를 선택하여 사용
+- bean안에서 객체를 생성 하면서, 필드값을 전달 하는 방법
+  (2-1), (2-2), (2-3) 방법중 하나를 선택하여 사용
 
-- (2-1)appCTX5.xml 화일 안에서  bean 태그 통해 생성자 파라메터 형태로 클래스 추가 하기
+- (2-1)appCTX5.xml 화일 안에서  setter 형태로 bean객체 필드값 채우기
+```java
+
+  	<bean id="rec" class="edu.kosmo.testHome.Rectangle">
+ 		<property name="width" value="10"/>
+ 		<property name="height" value="10"/>
+ 	</bean>
+ 	<bean id="try" class="edu.kosmo.testHome.Triangle">
+ 		<property name="width" value="20"/>
+ 		<property name="height" value="20"/>
+ 	</bean>
+	
+```
+
+- (2-2)appCTX5.xml 화일 안에서  생성자 파라메터 형태로  bean객체 필드값 채우기
 ```xml
 <!--    Rectangle rec = new Rectangle(10,10);
         Triangle tri = new Triangle(10,10);
@@ -77,28 +102,8 @@ public static void main( String[] args )
  	</bean>
 ```
 
-- (2-2)appCTX5.xml 화일 안에서  bean 태그  통해 setter 형태로 클래스 추가 하기
-```java
 
-<!--    Rectangle rec = new Rectangle();
-		rec.setWidth(10);
-		rec.setHieght(10);
-        Triangle tri = new Triangle();
-		tri.setWidth(20);
-		tri.setHeight(20);
- -->
- 
-  	<bean id="rec" class="edu.kosmo.testHome.Rectangle">
- 		<property name="width" value="10"/>
- 		<property name="height" value="10"/>
- 	</bean>
- 	<bean id="try" class="edu.kosmo.testHome.Triangle">
- 		<property name="width" value="20"/>
- 		<property name="height" value="20"/>
- 	</bean>
-	
-```
-- (2-3)p네임스페이스 이용하여 클래스 추가 하기
+- (2-3)p네임스페이스 이용하여 bean객체의 필드값 채우기.
 ```xml
 (1)
 spring bean configuration 파일 ( appCTX5.xml ) 의 왼쪽 아래에
