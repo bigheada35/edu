@@ -770,3 +770,115 @@ select ename, sal from emp where mgr=(select empno from emp where ename='KING');
 ![그림](PNG/1210_15.PNG)
 
 ![그림](PNG/1210_16.PNG)
+
+- 42> Sales 부서의 모든 사원에 대한 부서번호, 이름 및 직위를 출력하라.
+```sql
+select e.deptno, e.ename, e.job from emp e, dept d where e.deptno=d.deptno and d.dname='SALES';
+```
+
+```sql
+select e.deptno, e.ename, e.job from emp e inner join dept d on e.deptno=d.deptno where d.dname='SALES';
+```
+
+![그림](PNG/1210_17.PNG)
+
+- 43> 자신의 급여가 평균 급여보다 많고 이름에 T가 들어가는 사원과
+동일한 부서에 근무하는 모든 사원의 사원 번호, 이름 및 급여를 출력하라.
+
+```sql
+select empno, ename, sal from emp 
+where sal > (select avg(sal) from emp) 
+and deptno in(select deptno from emp where ename like '%T%');
+```
+
+- 44> 커미션을 받는 사원과 급여가 일치하는 사원의 이름,부서번호,급여를 출력하라.
+```sql
+select ename, deptno, sal
+from emp
+where sal in(select sal
+from emp
+where comm is not null)
+```
+ 
+- 45> Dallas에서 근무하는 사원과 직업이 일치하는 사원의 이름,부서이름, 및 급여를 출력하시오
+```sql
+select e.ename, d.dname, e.sal
+from emp e, dept d
+where e.deptno=d.deptno
+and e.job in(select e.job
+from emp e, dept d
+where e.deptno=d.deptno
+and d.loc='dallas')
+```
+ 
+- 46> Scott과 동일한 급여 및 커미션을 받는 모든 사원의 이름, 입사일 및 급여를 출력하시오
+```sql
+select ename, hiredate, sal
+from emp
+where sal=(select sal
+from emp
+where ename='SCOTT')
+and nvl(comm,0)=(select nvl(comm,0)
+from emp
+where ename='SCOTT')
+```
+ 
+- 47> 직업이 Clerk 인 사원들보다 더 많은 급여를 받는 사원의 사원번호, 이름, 급여를 출력하되,
+결과를 급여가 높은 순으로 정렬하라.
+```sql
+select empno, ename, sal
+from emp
+where sal>all(select sal
+from emp
+where job='CLERK') --결국 최대값과 비교 any 최소값과 비교
+order by sal desc
+```
+ 
+- 48> 이름에 A가 들어가는 사원과 같은 직업을 가진 사원의 이름과 월급, 부서번호를 출력하라.
+```sql
+select ename, sal, deptno
+from emp
+where job in(select job
+from emp
+where ename like '%A%')
+```
+ 
+- 49> New York 에서 근무하는 사원과 급여 및 커미션이 같은 사원의 사원이름과 부서명을 출력하라.
+```sql
+select * from emp join dept
+on emp.deptno = dept.deptno
+and dept.loc='NEW YORK';
+``` 
+ 
+```sql 
+select e.ename, d.dname
+from emp e, dept d
+where
+e.deptno= d.deptno
+and e.sal in(
+select e.sal
+from emp e, dept d
+where e.deptno=d.deptno and loc='NEW YORK'
+)
+and nvl(comm,0) in(
+select nvl(comm,0)
+from emp e, dept d
+where e.deptno=d.deptno
+and loc='NEW YORK');
+```
+ 
+- 50> Dallas에서 근무하는 사원과 직업 및 관리자가 같은 사원의 사원번호,사원이름,
+직업,월급,부서명,커미션을 출력하되 커미션이 책정되지 않은 사원은 NoCommission으로 표시하고,
+커미션의 컬럼명은 Comm으로 나오게 출력하시오. (단, 최고월급부터 출력되게 하시오)
+```sql
+SELECT E.EMPNO, E.ENAME, E.JOB, E.SAL, D.DNAME,
+NVL((TO_CHAR(E.COMM)),'NoCommision') AS "COMM"
+FROM EMP E, DEPT D
+WHERE E.DEPTNO=D.DEPTNO
+AND JOB IN(SELECT JOB
+FROM EMP E, DEPT D
+WHERE E.DEPTNO=D.DEPTNO AND LOC='DALLAS')
+AND MGR IN(SELECT MGR
+FROM EMP E, DEPT D
+WHERE E.DEPTNO=D.DEPTNO AND LOC='DALLAS')
+```
