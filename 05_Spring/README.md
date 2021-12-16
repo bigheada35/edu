@@ -1,37 +1,37 @@
 
 
-__03.DI(Dependency Injection)-1__
-__04.DI(Dependency Injection)-2__
-__05.DI활용__
-__06.DI설정 방법__
-__07.생명주기(life cycle)__
-__08.외부파일을 이용한 설정__
+#### 03.DI(Dependency Injection)-1
+#### 04.DI(Dependency Injection)-2
+#### 05.DI활용
+#### 06.DI설정 방법
+#### 07.생명주기(life cycle)
+#### 08.외부파일을 이용한 설정
 
-__09.AOP-I__
-__10.AOP-II__
+09.AOP-I
+10.AOP-II
 
-__11.MVC기초__
-__12.컨트롤러__
-__13.form 데이터__
-__14.@RequestMapping 파라미터__
-__15.폼 데이터 값 검증__
+11.MVC기초
+12.컨트롤러
+13.form 데이터
+14.@RequestMapping 파라미터
+15.폼 데이터 값 검증
 
-__16.스프링MVC 게시판-1__
-__17.스프링MVC 게시판-2__
-__18.스프링MVC 게시판-3__
-__19.스프링MVC 게시판-4__
-__20.스프링MVC 게시판-5__
+16.스프링MVC 게시판-1
+17.스프링MVC 게시판-2
+18.스프링MVC 게시판-3
+19.스프링MVC 게시판-4
+20.스프링MVC 게시판-5
 
-__21.스프링JDBC__
+21.스프링JDBC
 
-__22.트랜젝션(Transaction)-1__
-__23.트랜젝션(Transaction)-2__
-__24.트랜젝션(Transaction)-3__
+22.트랜젝션(Transaction)-1
+23.트랜젝션(Transaction)-2
+24.트랜젝션(Transaction)-3
 
-__25.Security-1__
-__26.Security-2__
-__27.Security-3__
+25.Security-1
+26.Security-2
+27.Security-3
 
-__28.Mybatis-1__
-__29.Mybatis-2__
-__30.Mybatis-3__
+28.Mybatis-1
+29.Mybatis-2
+30.Mybatis-3
