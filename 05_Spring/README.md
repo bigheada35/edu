@@ -1,4 +1,8 @@
-
+```
+<!-- 이거 붙여 넣기 한글 한글 한글 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+```
 
 #### 03.DI(Dependency Injection)-1
 #### 04.DI(Dependency Injection)-2
