@@ -1,8 +1,8 @@
 
 __Spring Legacy project만들고 할일__
 
-- 1. pom.xml 파일 <properties> 이하 붙여 넣기.
-- 2. web.xml 파일내부 추가 (한글처리를 위한 UTF-8지정)
+- 1 pom.xml 파일 <properties> 이하 붙여 넣기.
+- 2 web.xml 파일내부 추가 (한글처리를 위한 UTF-8지정)
 ```
 <!-- 한글처리 를 위한 UTF-8 지정해 주는 것인데, 기본적으로 넣어야 한다. -->
 
@@ -20,9 +20,9 @@ __Spring Legacy project만들고 할일__
           <url-pattern>/*</url-pattern>
     </filter-mapping>
 ```
-- 3. servlet-control.xml
+- 3 servlet-control.xml
 
-- 4. root-context.xml
+- 4 root-context.xml
 
 ```
 <!-- 이거 붙여 넣기 한글 한글 한글 -->
