@@ -24,10 +24,23 @@ __Spring Legacy project만들고 할일__
 
 - 4 root-context.xml
 
+- 5 home.jsp 또는 다른  jsp파일 상단에 넣기
 ```
 <!-- 이거 붙여 넣기 한글 한글 한글 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+	
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- 이거 하나 넣어 주기 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%-- 지우자 이거 <%@ page session="false" %> --%>
+
+<!-- 이거 붙여 넣기 한글 한글 한글 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 ```
 
 
