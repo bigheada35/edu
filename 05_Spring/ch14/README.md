@@ -2,6 +2,8 @@ __Spring Legacy project 만들고 할일__
 
 - 1 pom.xml 파일  <properties> 이하 붙여 넣기.
 
+![파일](pom.xml)
+
 - 2 web.xml 파일내부 추가 (한글처리를 위한 UTF-8지정)
 ```xml
 <!-- 한글처리 를 위한 UTF-8 지정해 주는 것인데, 기본적으로 넣어야 한다. -->
