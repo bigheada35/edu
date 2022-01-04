@@ -28,6 +28,13 @@
 ```
 
 ## security-context.xml 안에서 내용의 추가 
+###  처음에 "/login/loginForm" url이 들어오면, 스프링스큐리티는 HomeController.java 안의 public String loginForm() { } 호출 하고,
+###  WEB-INF\views\login\loginForm2.jsp  에서 username과 pw를 포함해서 다시 /login/loginForm" url이 들어오면
+### 스프링 시큐리티가 낚아채서 "/login/loginForm" 을 HomeController.java 안의 public String loginForm() { }로 보낼지,
+### "/login/loginForm?error"을  HomeController.java 안의 public String loginForm() { }로 보낼지 결정한다.
+### 주의 : security-context.xml 안의 "username" 와 "pw" 는 
+### WEB-INF\views\login\loginForm2.jsp 안의 <form:form 안의 <input type="text" 가, name="username", name="pw" 꼭 되어 있어야 한다.
+
 
 ![그림](img/33.PNG)
 
@@ -42,7 +49,8 @@
 ```
 
 ## src\main\webapp\WEB-INF\views\login\loginForm2.jsp 
-###
+### 참고 : <form:form 를 사용하면, _csrf 부분을 자동으로 넣어 주므로, 아래에서
+### <%-- <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/> --%> 처럼 막아도 된다.
 ```java
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -95,3 +103,6 @@
 </body>
 </html>
 ```
+
+## 참고: 크롬에서 session 삭제하는 방법
+### 크롬 -> F12 -> application -> storage -> clear site data ( including third-party cookies 포함)
