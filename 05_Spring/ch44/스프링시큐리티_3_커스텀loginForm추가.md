@@ -50,8 +50,8 @@
 ```
 
 ## src\main\webapp\WEB-INF\views\login\loginForm2.jsp 
-### 참고 : <form:form 를 사용하면, _csrf 부분을 자동으로 넣어 주므로, 아래에서
-### "<%-- <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/> --%>" 처럼 막아도 된다.
+### 참고 : <form:form 를 사용하면, _csrf 부분을 자동으로 넣어 주므로, 
+###  <input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/> 부분을 아래처럼 막아도 된다.
 ```java
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
