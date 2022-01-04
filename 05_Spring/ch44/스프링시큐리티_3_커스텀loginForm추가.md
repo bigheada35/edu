@@ -30,7 +30,8 @@
 ## security-context.xml 안에서 내용의 추가 
 ###  처음에 "/login/loginForm" url이 들어오면, 스프링스큐리티는 HomeController.java 안의 public String loginForm() { } 호출 하고,
 ###  WEB-INF\views\login\loginForm2.jsp  에서 username과 pw를 포함해서 다시 /login/loginForm" url이 들어오면
-### 스프링 시큐리티가 낚아채서 "/login/loginForm" 을 HomeController.java 안의 public String loginForm() { }로 보낼지,
+### 스프링 시큐리티가 낚아채서 username과 pw 을 판단하여, 
+### "/login/loginForm" 을 HomeController.java 안의 public String loginForm() { }로 보낼지,
 ### "/login/loginForm?error"을  HomeController.java 안의 public String loginForm() { }로 보낼지 결정한다.
 ### 주의 : security-context.xml 안의 "username" 와 "pw" 는 
 ### WEB-INF\views\login\loginForm2.jsp 안의 <form:form 안의 <input type="text" 가, name="username", name="pw" 꼭 되어 있어야 한다.
