@@ -883,7 +883,7 @@ FROM EMP E, DEPT D
 WHERE E.DEPTNO=D.DEPTNO AND LOC='DALLAS')
 ```
 
-- job 이 MANAGER 이면 ROLE_USER 로 바꿔서 출력
+- ? 의 이름을 가진 사람의  job 이 MANAGER 이면 ROLE_USER 로 바꿔서 출력 ( 이름도 포함)
 ```sql
 select 
 	ename, 
