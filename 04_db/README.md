@@ -882,3 +882,14 @@ AND MGR IN(SELECT MGR
 FROM EMP E, DEPT D
 WHERE E.DEPTNO=D.DEPTNO AND LOC='DALLAS')
 ```
+
+- job 이 MANAGER 이면 ROLE_USER 로 바꿔서 출력
+```sql
+select 
+	ename, 
+	CASE 
+		when job = 'MANAGER' then 'ROLE_USER' 
+	END 
+from emp 
+where ename = ?
+```
