@@ -888,7 +888,8 @@ WHERE E.DEPTNO=D.DEPTNO AND LOC='DALLAS')
 select 
 	ename, 
 	CASE 
-		when job = 'MANAGER' then 'ROLE_USER' 
+		WHEN job = 'MANAGER' 
+		THEN 'ROLE_USER' 
 	END 
 from emp 
 where ename = ?
