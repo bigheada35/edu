@@ -1,6 +1,6 @@
 # username과 password를 db에서 가져오도록 수정
 
-![그림](1.PNG)
+![그림](img2/1.PNG)
 
 ## edu\kosmo\ex\security\CustomNoOpPasswordEncoder.java 파일 추가
 
@@ -26,7 +26,7 @@ public class CustomNoOpPasswordEncoder implements PasswordEncoder {
 ```
 ## main\webapp\WEB-INF\spring\root-context.xml 수정
 
-![그림](2.PNG)
+![그림](img2/2.PNG)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -119,7 +119,7 @@ public class CustomNoOpPasswordEncoder implements PasswordEncoder {
 
 ## main\webapp\WEB-INF\web.xml 수정
 
-![그림](3.PNG)
+![그림](img2/3.PNG)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
