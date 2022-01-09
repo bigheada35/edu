@@ -21,7 +21,7 @@ USER로 권한이 주어지면 /user/userHome에 접근할수 있고, 이 페이지에 접근을 하면
 
 ![그림](img3/3.PNG)
 
-# 스프링 시큐리티에 (2)연결
+# 스프링 시큐리티에 (2)연결 - 스프링 시큐리티에서 customUserDetailsService 을 호출해 감.
 
 ![그림](img3/4.PNG)
 
