@@ -3,6 +3,9 @@
 ![그림](img2/1.PNG)
 
 ## edu\kosmo\ex\security\CustomNoOpPasswordEncoder.java 파일 추가
+지금은 패스워드를 엔코딩 하지 않음.
+스프링 시큐리티에게는 security-db-basic-context.xml 안에서
+customNoOpPasswordEncoder 객체는 CustomNoOpPasswordEncoder.java 임을 알려줌
 
 ```java
 package edu.kosmo.ex.security;
