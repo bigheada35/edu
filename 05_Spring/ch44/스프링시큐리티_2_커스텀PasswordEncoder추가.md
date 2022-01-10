@@ -66,8 +66,10 @@ public class CustomNoOpPasswordEncoder implements PasswordEncoder {
 ```
 
 ## main\webapp\WEB-INF\spring\security-db-basic-context.xml 파일 추가
-## username 과 password는 DB의 emp 테이블에서 ename 과 empno을 가지고 와서 사용하고 (authentication )
-## 권한 ename이 MANAGER 이면은 ROLE_ADMIN을 부여하고,아니면 ROLE_USER를 부여한다.(authorities )
+#### (authentication)
+username 과 password는 DB의 emp 테이블에서 ename 과 empno을 가지고 와서 사용함. 
+#### (authorities)
+권한 ename이 MANAGER 이면은 ROLE_ADMIN을 부여하고,아니면 ROLE_USER를 부여한다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
