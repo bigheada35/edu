@@ -29,7 +29,15 @@ USER로 권한이 주어지면 /user/userHome에 접근할수 있고, 이 페이지에 접근을 하면
 
 ![그림](img3/5.PNG)
 
-# (4) 스프링 시큐리티의 상태를 tag로 가지고 와서 사용
+# (4) 스프링 시큐리티의 함수를 tag로 가지고 와서 사용 
+```
+pom.xml의 이부분에 의해서 가능 함.
+      <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-taglibs</artifactId>
+         <version>${org.security-version}</version>
+      </dependency>
+```
 
 ![그림](img3/6.PNG)
 
