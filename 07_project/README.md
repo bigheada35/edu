@@ -8,3 +8,10 @@ So it contains
 	API for basic CRUD operations and also API for pagination and sorting.
 ```
 
+```
+<dependency> 
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId> 
+</dependency>
+
+```
